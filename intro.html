@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction to Cloud Computing</title>
+    <link rel="stylesheet" href="style1.css">
+    <style>
+        /* Base styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f7f9fc;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: #ffffff;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 5px solid #007bff;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+            font-weight: bold;
+        }
+
+        /* Container */
+        .container {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 20px auto;
+        }
+
+        /* Section */
+        .section {
+            margin-bottom: 40px;
+            padding: 20px;
+            background: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 5px;
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            border-radius: 5px;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .section h2 {
+            margin-top: 0;
+            color: #007bff;
+            font-size: 1.75em;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .section img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto 20px;
+            border-radius: 8px;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: #007bff;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+
+        .container-timeline {
+            padding: 10px 40px;
+            position: relative;
+            background: inherit;
+            width: 50%;
+        }
+
+        .container-timeline.left {
+            left: 0;
+        }
+
+        .container-timeline.right {
+            left: 50%;
+        }
+
+        .container-timeline::before {
+            content: " ";
+            position: absolute;
+            top: 22px;
+            width: 25px;
+            height: 25px;
+            right: -17px;
+            background-color: #007bff;
+            border: 4px solid #ffffff;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .right::before {
+            left: -17px;
+        }
+
+        .content {
+            padding: 20px 30px;
+            background-color: #ffffff;
+            position: relative;
+            border-radius: 6px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .left .content {
+            margin-left: 30px;
+        }
+
+        .right .content {
+            margin-right: 30px;
+        }
+
+        /* Tooltip */
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 150px;
+            background-color: #007bff;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 10px 0;
+            position: absolute;
+            z-index: 1;
+            bottom: 150%;
+            left: 50%;
+            margin-left: -75px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        /* List styles */
+        ul {
+            padding-left: 20px;
+            margin-top: 10px;
+            list-style: none;
+            position: relative;
+        }
+
+        ul li::before {
+            content: '•';
+            color: #007bff;
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+
+        li {
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        /* Button */
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Smart Art */
+        .smart-art {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+
+        .smart-art .item {
+            flex: 1 1 30%;
+            background: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .smart-art .item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .smart-art .item img {
+            max-width: 80%;
+            height: auto;
+            margin-bottom: 20px;
+            border-radius: 50%;
+        }
+
+        .smart-art .item h3 {
+            color: #007bff;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .smart-art .item p {
+            font-size: 1em;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Introduction to Cloud Computing</h1>
+    </header>
+    <div class="container">
+        <div class="section">
+            <h2>What is Cloud Computing?</h2>
+            <img src="https://example.com/cloud-computing.jpg" alt="Cloud Computing">
+            <p>Cloud computing is the delivery of computing services over the internet ("the cloud"). This includes servers, storage, databases, networking, software, and more. It enables faster innovation, flexible resources, and economies of scale.</p>
+        </div>
+        <div class="section">
+            <h2>Key Concepts</h2>
+            <img src="https://example.com/key-concepts.jpg" alt="Key Concepts">
+            <p>Cloud computing offers several key concepts including Infrastructure as a Service (IaaS), Platform as a Service (PaaS), and Software as a Service (SaaS). These services provide varying levels of control, flexibility, and management.</p>
+        </div>
+        <div class="section">
+            <h2>Cloud Architecture</h2>
+            <img src="https://example.com/cloud-architecture.jpg" alt="Cloud Architecture">
+            <p>Cloud architecture consists of various components and subcomponents required for cloud computing. It can be broadly divided into:</p>
+            <ul>
+                <li><strong>Frontend Platform:</strong> Includes client-side devices and applications to interact with the cloud.</li>
+                <li><strong>Backend Platform:</strong> Consists of servers, storage, and databases managed by the cloud provider.</li>
+                <li><strong>Cloud-Based Delivery:</strong> Includes software, platform, and infrastructure delivered as a service.</li>
+                <li><strong>Network:</strong> Provides the connectivity that allows communication between frontend and backend.</li>
+            </ul>
+            <p><strong>Advantages of Cloud Computing:</strong></p>
+            <ul>
+                <li>Cost Efficiency: Reduces the need for capital expenditure on hardware and software.</li>
+                <li>Scalability: Easily scale resources up or down based on demand.</li>
+                <li>Accessibility: Access services from anywhere with an internet connection.</li>
+                <li>Disaster Recovery: Improved disaster recovery options with backup and recovery solutions.</li>
+            </ul>
+            <p><strong>Disadvantages of Cloud Computing:</strong></p>
+            <ul>
+                <li>Security Risks: Potential risks related to data breaches and privacy concerns.</li>
+                <li>Downtime: Dependence on the cloud provider's uptime and reliability.</li>
+                <li>Limited Control: Less control over the infrastructure compared to on-premises solutions.</li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2>Introduction to Cloud Usage</h2>
+            <p>Cloud computing is utilized in various ways, including:</p>
+            <ul>
+                <li><strong>Storage:</strong> Storing and accessing data in the cloud instead of on local servers.</li>
+                <li><strong>Development:</strong> Developing and deploying applications using cloud-based platforms.</li>
+                <li><strong>Data Analytics:</strong> Analyzing large datasets using cloud-based analytics tools.</li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2>Performance Aspects</h2>
+            <p>Performance in cloud computing involves:</p>
+            <ul>
+                <li><strong>Latency:</strong> The time it takes for data to travel between the client and server.</li>
+                <li><strong>Throughput:</strong> The amount of data processed by the cloud service in a given time frame.</li>
+                <li><strong>Scalability:</strong> The ability to handle increased workloads by adding resources as needed.</li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2>Evolution of Cloud Computing</h2>
+            <div class="timeline">
+                <div class="container-timeline left">
+                    <div class="content">
+                        <h3>1960s</h3>
+                        <p>The concept of cloud computing began in the 1960s with the development of time-sharing and utility computing.</p>
+                    </div>
+                </div>
+                <div class="container-timeline right">
+                    <div class="content">
+                        <h3>1990s</h3>
+                        <p>The rise of the internet in the 1990s brought about the emergence of cloud computing as we know it today.</p>
+                    </div>
+                </div>
+                <div class="container-timeline left">
+                    <div class="content">
+                        <h3>2000s</h3>
+                        <p>The 2000s saw the launch of major cloud services like Amazon Web Services (AWS) and Google Cloud Platform (GCP).</p>
+                    </div>
+                </div>
+                <div class="container-timeline right">
+                    <div class="content">
+                        <h3>2010s</h3>
+                        <p>Cloud computing became mainstream, with widespread adoption across various industries.</p>
+                    </div>
+                </div>
+                <div class="container-timeline left">
+                    <div class="content">
+                        <h3>2020s</h3>
+                        <p>Cloud computing continues to evolve with advancements in AI, machine learning, and edge computing.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <h2>Smart Art Representation</h2>
+            <div class="smart-art">
+                <div class="item">
+                    <img src="https://example.com/iaas.jpg" alt="IaaS">
+                    <h3>Infrastructure as a Service (IaaS)</h3>
+                    <p>IaaS provides virtualized computing resources over the internet. It includes servers, storage, and networking infrastructure.</p>
+                </div>
+                <div class="item">
+                    <img src="https://example.com/paas.jpg" alt="PaaS">
+                    <h3>Platform as a Service (PaaS)</h3>
+                    <p>PaaS offers a platform allowing customers to develop, run, and manage applications without dealing with infrastructure complexities.</p>
+                </div>
+                <div class="item">
+                    <img src="https://example.com/saas.jpg" alt="SaaS">
+                    <h3>Software as a Service (SaaS)</h3>
+                    <p>SaaS delivers software applications over the internet on a subscription basis, eliminating the need for local installation.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Example of interactive feature: Tooltip for more information
+            const tooltips = document.querySelectorAll('.tooltip');
+            tooltips.forEach(tooltip => {
+                tooltip.addEventListener('mouseover', () => {
+                    const tooltipText = tooltip.querySelector('.tooltiptext');
+                    tooltipText.style.visibility = 'visible';
+                    tooltipText.style.opacity = '1';
+                });
+
+                tooltip.addEventListener('mouseout', () => {
+                    const tooltipText = tooltip.querySelector('.tooltiptext');
+                    tooltipText.style.visibility = 'hidden';
+                    tooltipText.style.opacity = '0';
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloud Computing Simulation</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+    <style>
+        /* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #e0f7fa;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+header {
+    background-color: #00796b;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+h1 {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 1rem;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.resource-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 1rem;
+}
+
+.resource {
+    background-color: #4db6ac;
+    color: #fff;
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    flex: 1 0 120px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.button-group {
+    margin-bottom: 1rem;
+}
+
+button {
+    background-color: #00796b;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 0.5rem;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #004d40;
+}
+
+.load-balancer {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 1rem;
+}
+
+.server {
+    background-color: #80deea;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    flex: 1;
+    margin: 0 10px;
+}
+
+.server:nth-child(odd) {
+    background-color: #4dd0e1;
+}
+
+@media (max-width: 768px) {
+    .load-balancer {
+        flex-direction: column;
+    }
+    .server {
+        margin-bottom: 10px;
+    }
+}
+ </style>
+    <header>
+        <h1>Cloud Computing Simulation</h1>
+    </header>
+    <section id="resource-allocation" class="container">
+        <h2>Resource Allocation</h2>
+        <p>Simulate dynamic allocation of cloud resources. You can add or remove resources to see how they appear.</p>
+        <div id="resources" class="resource-container"></div>
+        <div class="button-group">
+            <button id="allocateBtn">Allocate Resource</button>
+            <button id="deallocateBtn">Deallocate Resource</button>
+        </div>
+        <p id="resourceCount">Current Resources: 0</p>
+    </section>
+    <section id="load-balancing" class="container">
+        <h2>Load Balancing</h2>
+        <p>Distribute load across multiple servers. Click the button to evenly distribute the resources across the available servers.</p>
+        <div id="load-balancer" class="load-balancer">
+            <div class="server" id="server1">Server 1</div>
+            <div class="server" id="server2">Server 2</div>
+            <div class="server" id="server3">Server 3</div>
+        </div>
+        <button id="balanceLoadBtn">Balance Load</button>
+        <p id="loadStatus">Load Distribution:</p>
+    </section>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+    const resourcesContainer = document.getElementById('resources');
+    const allocateBtn = document.getElementById('allocateBtn');
+    const deallocateBtn = document.getElementById('deallocateBtn');
+    const balanceLoadBtn = document.getElementById('balanceLoadBtn');
+    const resourceCountElement = document.getElementById('resourceCount');
+    const loadStatusElement = document.getElementById('loadStatus');
+
+    let resourceCount = 0;
+    const servers = document.querySelectorAll('.server');
+
+    function updateResources() {
+        resourcesContainer.innerHTML = '';
+        for (let i = 0; i < resourceCount; i++) {
+            const div = document.createElement('div');
+            div.classList.add('resource');
+            div.textContent = `Resource ${i + 1}`;
+            resourcesContainer.appendChild(div);
+        }
+        resourceCountElement.textContent = `Current Resources: ${resourceCount}`;
+    }
+
+    function distributeLoad() {
+        const loadPerServer = Math.ceil(resourceCount / servers.length);
+        servers.forEach((server, index) => {
+            server.style.backgroundColor = '#4dd0e1'; // Reset server color
+            server.textContent = `Server ${index + 1} (${loadPerServer} loads)`;
+        });
+        loadStatusElement.textContent = `Load Distribution: ${loadPerServer} loads per server`;
+    }
+
+    allocateBtn.addEventListener('click', () => {
+        resourceCount++;
+        updateResources();
+    });
+
+    deallocateBtn.addEventListener('click', () => {
+        if (resourceCount > 0) {
+            resourceCount--;
+            updateResources();
+        }
+    });
+
+    balanceLoadBtn.addEventListener('click', () => {
+        distributeLoad();
+    });
+});
+
+    </script>
+</body>
+</html>

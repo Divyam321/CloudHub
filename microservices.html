@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Microservices Architecture</title>
+    <link rel="stylesheet" href="style1.css">
+    
+</head>
+<body>
+    <div class="container">
+        <header>
+           <center> <h1>Microservices Architecture</h1></center>
+        </header>
+
+        <main>
+            <section id="intro">
+                <h2>What are Microservices?</h2>
+                <p>Microservices architecture is a design pattern where an application is composed of small, independent services that communicate over APIs. Each microservice handles a specific function and can be developed, deployed, and scaled independently, allowing for greater flexibility and efficiency.</p>
+                <div class="diagram">
+                    <center><img src="https://learn.microsoft.com/en-us/azure/architecture/includes/images/microservices-logical.png" alt="Microservices Diagram"></center>
+                </div>
+            </section>
+
+            <section id="benefits">
+                <h2>Benefits of Microservices</h2>
+                <ul>
+                    <li>Improved Scalability: Services can be scaled independently based on demand.</li>
+                    <li>Flexibility: Allows the use of different technologies and languages for different services.</li>
+                    <li>Resilience: Faults in one service do not impact the entire application.</li>
+                    <li>Faster Time-to-Market: Enables parallel development and deployment of services.</li>
+                </ul>
+            </section>
+
+            <section id="comparison">
+                <h2>Microservices vs. Monolithic Architecture</h2>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Aspect</th>
+                            <th>Microservices</th>
+                            <th>Monolithic</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Architecture</td>
+                            <td>Decentralized, independent services</td>
+                            <td>Centralized, single codebase</td>
+                        </tr>
+                        <tr>
+                            <td>Deployment</td>
+                            <td>Individual services can be deployed independently</td>
+                            <td>Entire application must be deployed together</td>
+                        </tr>
+                        <tr>
+                            <td>Scalability</td>
+                            <td>Services can be scaled independently</td>
+                            <td>Scales as a whole</td>
+                        </tr>
+                        <tr>
+                            <td>Technology Stack</td>
+                            <td>Different stacks can be used for different services</td>
+                            <td>Single stack used throughout</td>
+                        </tr>
+                        <tr>
+                            <td>Failure Impact</td>
+                            <td>Failure in one service does not affect others</td>
+                            <td>Failure can impact the entire application</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="cloud">
+                <h2>Microservices and Cloud Computing</h2>
+                <p>Microservices and cloud computing complement each other well. Microservices can be deployed in cloud environments to leverage cloud benefits like scalability and flexible resource management. Here's a comparison to highlight their relationship:</p>
+                <div class="diagram">
+                   <center> <img src="https://blog.sysfore.com/wp-content/uploads/2016/01/Microservices-Architecture.png" alt="Microservices vs Cloud Computing"></center>
+                </div>
+                <p>Cloud computing provides the infrastructure and platform for deploying microservices, allowing for elastic scaling, efficient resource management, and reduced operational costs.</p>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 Microservices Architecture. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Example of a function to handle any dynamic updates or security measures
+
+            // Function to dynamically update content (if needed)
+            function updateContent() {
+                // Example code to update content dynamically
+                console.log("Page content updated");
+            }
+
+            // Function to handle potential security measures (basic example)
+            function handleSecurity() {
+                // Example of a simple security measure: restrict right-click
+                document.addEventListener('contextmenu', (e) => {
+                    e.preventDefault();
+                });
+            }
+
+            // Initialize functions
+            updateContent();
+            handleSecurity();
+        });
+    </script>
+</body>
+</html>

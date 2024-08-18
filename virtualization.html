@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Virtualization in Cloud Computing</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <style>
+        /* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1, h2, h3 {
+    color: #0056b3;
+}
+
+/* Header */
+h1 {
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+/* Content Wrapper */
+.content-wrapper {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+/* Services Section */
+.services {
+    margin-bottom: 40px;
+}
+
+.service-grid {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.service {
+    background: #e9f5ff;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    flex: 1 1 200px;
+    transition: transform 0.3s;
+    position: relative;
+}
+
+.service:hover {
+    transform: scale(1.05);
+}
+
+.icon {
+    background: #0056b3;
+    color: #fff;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 10px auto;
+    font-size: 1.5em;
+}
+
+.service h3 {
+    margin: 10px 0;
+    font-size: 1.2em;
+}
+
+.service p {
+    font-size: 0.9em;
+}
+
+/* More Info Section */
+.more-info {
+    margin-bottom: 20px;
+}
+
+.more-info h2, .more-info h3 {
+    margin-bottom: 10px;
+}
+
+.more-info p, .more-info ul {
+    margin-bottom: 20px;
+}
+
+.more-info ul {
+    list-style-type: square;
+    padding-left: 20px;
+}
+
+.more-info li {
+    margin-bottom: 10px;
+}
+
+/* Diagrams */
+.diagrams {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.diagram {
+    flex: 1 1 300px;
+    text-align: center;
+}
+
+.diagram img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.diagram p {
+    margin-top: 10px;
+    font-style: italic;
+}
+
+    </style>
+  <div class="container">
+    <h1>Virtualization in Cloud Computing</h1>
+    <div class="content-wrapper">
+
+      <div class="services">
+        <h2>Core Virtualization Concepts</h2>
+        <div class="service-grid">
+          <div class="service">
+            <div class="icon">H</div>
+            <h3>Hypervisor</h3>
+            <p>A software layer that enables multiple operating systems to run concurrently on a host machine.</p>
+          </div>
+          <div class="service">
+            <div class="icon">VM</div>
+            <h3>Virtual Machines</h3>
+            <p>Emulated computers created by virtualization, each running its own operating system and applications.</p>
+          </div>
+          <div class="service">
+            <div class="icon">VN</div>
+            <h3>Virtual Network</h3>
+            <p>Abstracted network resources providing connectivity between VMs and other virtualized services.</p>
+          </div>
+          <div class="service">
+            <div class="icon">VS</div>
+            <h3>Virtual Storage</h3>
+            <p>Storage resources abstracted from physical hardware to provide scalable and flexible storage solutions.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-box more-info">
+        <h2>Theories and Benefits</h2>
+
+        <h3>Theory of Virtualization</h3>
+        <p><strong>Virtualization</strong> involves creating virtual versions of physical components. By abstracting physical resources, virtualization allows for the creation of multiple simulated environments from a single physical hardware system. This process is managed by a hypervisor, which separates the physical resources from the virtual environments.</p>
+
+        <h3>Types of Virtualization</h3>
+        <ul>
+          <li><strong>Server Virtualization:</strong> Partitioning a physical server into smaller virtual servers.</li>
+          <li><strong>Storage Virtualization:</strong> Pooling physical storage from multiple devices to appear as a single storage device.</li>
+          <li><strong>Network Virtualization:</strong> Combining network resources by splitting the available bandwidth into independent channels.</li>
+          <li><strong>Desktop Virtualization:</strong> Running a desktop operating system in a virtual machine on a central server.</li>
+          <li><strong>Application Virtualization:</strong> Running applications in an isolated runtime environment.</li>
+        </ul>
+
+        <h3>Key Benefits of Virtualization</h3>
+        <ul>
+          <li><strong>Cost Efficiency:</strong> Reduces hardware costs by running multiple virtual environments on a single physical system.</li>
+          <li><strong>Scalability:</strong> Easily scalable to meet increasing workload demands.</li>
+          <li><strong>Disaster Recovery:</strong> Simplifies backup and recovery processes.</li>
+          <li><strong>Isolation:</strong> Provides isolated environments to run different applications, enhancing security and stability.</li>
+          <li><strong>Resource Optimization:</strong> Optimizes the use of physical resources, improving overall system efficiency.</li>
+        </ul>
+
+        <h3>Examples of Virtualization in Cloud Computing</h3>
+        <p>Virtualization is widely used in cloud computing to provide various services:</p>
+        <ul>
+          <li><strong>Amazon Web Services (AWS):</strong> Uses virtualization to provide scalable computing resources through its EC2 instances.</li>
+          <li><strong>Microsoft Azure:</strong> Offers virtual machines and virtual networks to support a wide range of applications.</li>
+          <li><strong>Google Cloud Platform (GCP):</strong> Utilizes virtualization for its Compute Engine to deliver flexible computing power.</li>
+        </ul>
+
+        <div class="diagrams">
+          <div class="diagram">
+            <img src="https://miro.medium.com/v2/resize:fit:561/1*R_PQR6OefLcNp6WADuYU-w.png" alt="Virtualization Diagram">
+            <p>Diagram 1: Virtualization Overview</p>
+          </div>
+          <div class="diagram">
+            <img src="https://media.licdn.com/dms/image/C5612AQE_EM6mJAGMkQ/article-inline_image-shrink_400_744/0/1585485732867?e=1724889600&v=beta&t=_1D1sheCwAjNJ75o_j-CCsqwGeB0XyDmeNPFFlmpi7A" alt="Virtualization Diagram">
+            <p>Diagram 2: Virtualization Components</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
